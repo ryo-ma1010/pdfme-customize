@@ -35,6 +35,10 @@ export interface TableSchema extends Schema {
   columnStyles: {
     alignment?: { [colIndex: number]: ALIGNMENT };
   };
+  customStyle: {
+    headers: string[];
+    displayHeaders: string[];
+  };
 }
 
 export interface Styles {
@@ -81,6 +85,7 @@ export interface StylesProps {
   bodyStyles: Partial<Styles>;
   alternateRowStyles: Partial<Styles>;
   columnStyles: { [key: string]: Partial<Styles> };
+  customStyles: Partial<Styles>;
 }
 
 export type Section = 'head' | 'body';

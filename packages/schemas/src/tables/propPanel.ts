@@ -58,6 +58,35 @@ export const propPanel: PropPanel<TableSchema> = {
         span: 24,
         properties: getColumnStylesPropPanelSchema({ head, i18n }),
       },
+      customStyles: {
+        title: 'customStyle',
+        type: 'object',
+        widget: 'Card',
+        span: 24,
+        properties: {
+          // テーブルに書かれているヘッダー名(readOnly)
+          headerNames: {
+            type: 'object',
+            widget: 'mapDynamicVariables',
+            bind: false,
+            span: 24
+          },
+          // プレビュー時に表示されるヘッダー名(テキストエリア)
+          displayHeaderNames: {
+            title: 'display name',
+            type: 'string',
+            format: 'textarea',
+            props: {
+              id: 'placeholder-dynamic-var',
+              autoSize: {
+                minRows: 2,
+                maxRows: 5,
+              },
+            },
+            span: 24
+          }
+        },
+      },
     };
   },
   defaultSchema: {
@@ -69,6 +98,7 @@ export const propPanel: PropPanel<TableSchema> = {
     content: JSON.stringify([
       ['Alice', 'New York', 'Alice is a freelance web designer and developer'],
       ['Bob', 'Paris', 'Bob is a freelance illustrator and graphic designer'],
+      ['Carry', 'Paris', 'Bob is a freelance illustrator and graphic designer'],
     ]),
     showHead: true,
     head: ['Name', 'City', 'Description'],
@@ -87,5 +117,9 @@ export const propPanel: PropPanel<TableSchema> = {
       alternateBackgroundColor: '#f5f5f5',
     }),
     columnStyles: {},
+    customStyle: {
+      headers: [],
+      displayHeaders: [],
+    },
   },
 };
