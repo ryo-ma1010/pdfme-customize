@@ -67,7 +67,7 @@ export const propPanel: PropPanel<TableSchema> = {
           // テーブルに書かれているヘッダー名(readOnly)
           headerNames: {
             type: 'object',
-            widget: 'mapDynamicVariables',
+            widget: 'Card',
             bind: false,
             span: 24
           },
@@ -116,9 +116,9 @@ export const propPanel: PropPanel<TableSchema> = {
       alternateBackgroundColor: '#f5f5f5',
     }),
     columnStyles: {},
-    customStyle: {
-      headers: [],
-      displayHeaders: [],
+    customStyles: {
+      headerNames: ['Name', 'City', 'Description'],
+      displayHeaderNames: [],
     },
   },
 };

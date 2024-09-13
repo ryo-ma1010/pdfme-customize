@@ -45,7 +45,8 @@ interface UserOptions {
     [key: string]: Partial<Styles>;
   };
   customStyles?: {
-    key:string
+    headerNames: string[];
+    displayHeaderNames: string[];
   };
 }
 
@@ -187,7 +188,7 @@ function getTableOptions(schema: TableSchema, body: string[][]): UserOptions {
     const alignmentStyle = columnStylesAlignment[key] || {};
     return { ...acc, [key]: { ...widthStyle, ...alignmentStyle } };
   }, {} as Record<number, Partial<Styles>>);
-
+console.log(columnStyles);
   return {
     head: [schema.head],
     body,
@@ -201,7 +202,10 @@ function getTableOptions(schema: TableSchema, body: string[][]): UserOptions {
     alternateRowStyles: { backgroundColor: schema.bodyStyles.alternateBackgroundColor },
     columnStyles,
     margin: { top: 0, right: 0, left: schema.position.x, bottom: 0 },
-    customStyles,
+    customStyles: {
+      headerNames: schema.head,
+      displayHeaderNames: [],
+    },
   };
 }
 

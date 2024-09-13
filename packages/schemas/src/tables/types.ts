@@ -39,9 +39,9 @@ export interface TableSchema extends Schema {
   columnStyles: {
     alignment?: { [colIndex: number]: ALIGNMENT };
   };
-  customStyle: {
-    headers: string[];
-    displayHeaders: string[];
+  customStyles: {
+    headerNames: string[];
+    displayHeaderNames: string[];
   };
 }
 
