@@ -64,26 +64,21 @@ export const propPanel: PropPanel<TableSchema> = {
         widget: 'Card',
         span: 24,
         properties: {
-          // テーブルに書かれているヘッダー名(readOnly)
-          headerNames: {
-            type: 'object',
-            widget: 'Card',
-            bind: false,
-            span: 24
-          },
-          // プレビュー時に表示されるヘッダー名(テキストエリア)
           displayHeaderNames: {
-            title: 'display name',
-            type: 'string',
-            format: 'textarea',
-            props: {
-              id: 'placeholder-dynamic-var',
-              autoSize: {
-                minRows: 2,
-                maxRows: 5,
-              },
-            },
-            span: 24
+            type: 'object',
+            widget: 'lineTitle',
+            title: 'display header name',
+            column: 3,
+            properties: head.reduce(
+              (acc, cur, i) =>
+                Object.assign(acc, {
+                  [i]: {
+                    title: cur || 'Column ' + String(i + 1),
+                    type: 'string',
+                  },
+                }),
+              {}
+            ),
           }
         },
       },
@@ -116,9 +111,6 @@ export const propPanel: PropPanel<TableSchema> = {
       alternateBackgroundColor: '#f5f5f5',
     }),
     columnStyles: {},
-    customStyles: {
-      headerNames: ['Name', 'City', 'Description'],
-      displayHeaderNames: [],
-    },
+    customStyles: {},
   },
 };
