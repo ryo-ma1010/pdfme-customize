@@ -36,8 +36,7 @@ export interface TableSchema extends Schema {
     alignment?: { [colIndex: number]: ALIGNMENT };
   };
   customStyles: {
-    headerNames: string[];
-    displayHeaderNames: string[];
+    displayHeaderNames?: { [colIndex: number]: string };
   };
 }
 
@@ -56,6 +55,7 @@ export interface Styles {
   cellWidth: number;
   minCellHeight: number;
   minCellWidth: number;
+  displayHeaderNames: string;
 }
 
 export interface TableInput {
