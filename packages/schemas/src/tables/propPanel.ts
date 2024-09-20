@@ -1,4 +1,4 @@
-import type { PropPanel } from '@pdfme/common';
+import { PropPanel, PropPanelWidgetProps } from '@pdfme/common';
 import type { TableSchema } from './types';
 import { getFallbackFontName, DEFAULT_FONT_NAME } from '@pdfme/common';
 import {
@@ -7,6 +7,16 @@ import {
   getColumnStylesPropPanelSchema,
 } from './helper.js';
 import { HEX_COLOR_PATTERN } from '../constants.js';
+
+const getDisplayHeaderNamesSchema = (head: string[]) => {
+  return head.reduce((acc, cur, i) => Object.assign(acc, {
+    [cur || 'Column ' + String(i + 1)]: {
+      title: cur || 'Column ' + String(i + 1),
+      type: 'string',
+      props: {},
+    },
+  }), {});
+};
 
 export const propPanel: PropPanel<TableSchema> = {
   schema: ({ activeSchema, options, i18n }) => {
@@ -69,17 +79,8 @@ export const propPanel: PropPanel<TableSchema> = {
             widget: 'lineTitle',
             title: 'display header name',
             column: 3,
-            properties: head.reduce(
-              (acc, cur, i) =>
-                Object.assign(acc, {
-                  [i]: {
-                    title: cur || 'Column ' + String(i + 1),
-                    type: 'string',
-                  },
-                }),
-              {}
-            ),
-          }
+            properties: getDisplayHeaderNamesSchema(head),
+          },
         },
       },
     };
@@ -111,6 +112,12 @@ export const propPanel: PropPanel<TableSchema> = {
       alternateBackgroundColor: '#f5f5f5',
     }),
     columnStyles: {},
-    customStyles: {},
+    customStyles: {
+      displayHeaderNames: {
+        Name: '',
+        City: '',
+        Description: '',
+      }
+    },
   },
 };
