@@ -188,13 +188,6 @@ function getTableOptions(schema: TableSchema, body: string[][]): UserOptions {
     return { ...acc, [key]: { ...widthStyle, ...alignmentStyle } };
   }, {} as Record<number, Partial<Styles>>);
 
-  const customStyles = schema.head.reduce( (acc, key, index) => (
-    {
-      ...acc, [index]: key
-    }
-  ), {} as Record<string, Partial<Styles>>);
-
-console.log(customStyles);
   return {
     head: [schema.head],
     body,

@@ -36,7 +36,7 @@ export interface TableSchema extends Schema {
     alignment?: { [colIndex: number]: ALIGNMENT };
   };
   customStyles: {
-    displayHeaderNames?: { [colIndex: number]: string };
+    displayHeaderNames?: { [colIndex: string]: string };
   };
 }
 
@@ -55,7 +55,7 @@ export interface Styles {
   cellWidth: number;
   minCellHeight: number;
   minCellWidth: number;
-  displayHeaderNames: string;
+  displayHeaderNames: {[key: string]: string};
 }
 
 export interface TableInput {
@@ -85,7 +85,7 @@ export interface StylesProps {
   bodyStyles: Partial<Styles>;
   alternateRowStyles: Partial<Styles>;
   columnStyles: { [key: string]: Partial<Styles> };
-  customStyles: Partial<Styles>;
+  customStyles: { [key: string]: Partial<Styles> };
 }
 
 export type Section = 'head' | 'body';
