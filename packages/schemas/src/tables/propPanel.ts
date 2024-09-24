@@ -113,11 +113,7 @@ export const propPanel: PropPanel<TableSchema> = {
     }),
     columnStyles: {},
     customStyles: {
-      displayHeaderNames: {
-        Name: '',
-        City: '',
-        Description: '',
-      }
+      displayHeaderNames: {}
     },
   },
 };

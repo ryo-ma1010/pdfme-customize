@@ -89,7 +89,7 @@ export interface StylesProps {
   bodyStyles: Partial<Styles>;
   alternateRowStyles: Partial<Styles>;
   columnStyles: { [key: string]: Partial<Styles> };
-  customStyles: { [key: string]: Partial<Styles> };
+  customStyles: { [key: string]: string };
 }
 
 export type Section = 'head' | 'body';
