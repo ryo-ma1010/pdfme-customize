@@ -464,6 +464,9 @@ const getInvoiceTemplate = (): Template => ({
         columnStyles: {
           alignment: { '0': 'left', '3': 'right' },
         },
+        customStyles: {
+          displayHeaderNames: {},
+        },
       },
       subtotalLabel: {
         type: 'text',
