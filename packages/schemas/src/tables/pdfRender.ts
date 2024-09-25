@@ -96,16 +96,6 @@ async function drawTable(arg: PDFRenderProps<TableSchema>, table: Table): Promis
 
   if (settings.showHead) {
     for (const row of table.head) {
-      // ヘッダー名の上書き
-      for (const column of table.columns) {
-        const cell = row.cells[column.index];
-        // const raw = row.raw[column.index];
-        if (table.styles.customStyles[cell.raw] !== undefined) {
-          row.cells[column.index].raw = table.styles.customStyles[cell.raw];
-          row.raw[column.index] = table.styles.customStyles[cell.raw];
-        }
-      }
-      console.log(row);
       await drawRow(arg, table, row, cursor, table.columns);
     }
   }
@@ -124,6 +114,16 @@ export const pdfRender = async (arg: PDFRenderProps<TableSchema>) => {
     typeof value !== 'string' ? JSON.stringify(value || '[]') : value,
     schema.__bodyRange
   );
+
+  // ヘッダー書き換え
+  if (schema.customStyles.displayHeaderNames !== undefined) {
+    for (const [key, head] of schema.head.entries()) {
+      if (schema.customStyles.displayHeaderNames[head] === undefined) continue;
+      if (schema.customStyles.displayHeaderNames[head] === '') continue;
+      schema.head[key] = schema.customStyles.displayHeaderNames[head];
+    }
+  }
+
   const table = await createSingleTable(body, arg);
   await drawTable(arg, table);
 };
