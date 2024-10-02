@@ -6,6 +6,10 @@ import barcodes from './barcodes/index.js';
 import line from './shapes/line.js';
 import table from './tables/index.js';
 import { rectangle, ellipse } from './shapes/rectAndEllipse.js';
+import { convertForPdfLayoutProps, rotatePoint } from './utils.js';
+import customizeTable from './customizeTables/index.js';
+
+const tableBeta = table;
 
 const builtInPlugins = { Text: text };
 
@@ -19,6 +23,8 @@ export {
   table,
   barcodes,
   line,
+  tableBeta,
+  customizeTable,
   rectangle,
   ellipse,
 };

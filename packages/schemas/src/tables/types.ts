@@ -35,9 +35,10 @@ export interface TableSchema extends Schema {
   columnStyles: {
     alignment?: { [colIndex: number]: ALIGNMENT };
   };
-  customStyles: {
-    displayHeaderNames?: { [colIndex: string]: string };
-  };
+  // あとで消す
+  // customStyles: {
+  //   displayHeaderNames?: { [colIndex: string]: string };
+  // };
 }
 
 export interface Styles {
@@ -55,7 +56,8 @@ export interface Styles {
   cellWidth: number;
   minCellHeight: number;
   minCellWidth: number;
-  displayHeaderNames: {[key: string]: string};
+  // あとで消す
+  // displayHeaderNames: {[key: string]: string};
 }
 
 export interface TableInput {
@@ -85,7 +87,8 @@ export interface StylesProps {
   bodyStyles: Partial<Styles>;
   alternateRowStyles: Partial<Styles>;
   columnStyles: { [key: string]: Partial<Styles> };
-  customStyles: { [key: string]: string };
+  // あとで消す
+  // customStyles: { [key: string]: string };
 }
 
 export type Section = 'head' | 'body';

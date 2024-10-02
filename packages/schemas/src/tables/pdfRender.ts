@@ -115,15 +115,6 @@ export const pdfRender = async (arg: PDFRenderProps<TableSchema>) => {
     schema.__bodyRange
   );
 
-  // ヘッダー書き換え
-  if (schema.customStyles.displayHeaderNames !== undefined) {
-    for (const [key, head] of schema.head.entries()) {
-      if (schema.customStyles.displayHeaderNames[head] === undefined) continue;
-      if (schema.customStyles.displayHeaderNames[head] === '') continue;
-      schema.head[key] = schema.customStyles.displayHeaderNames[head];
-    }
-  }
-
   const table = await createSingleTable(body, arg);
   await drawTable(arg, table);
 };

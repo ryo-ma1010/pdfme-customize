@@ -8,15 +8,16 @@ import {
 } from './helper.js';
 import { HEX_COLOR_PATTERN } from '../constants.js';
 
-const getDisplayHeaderNamesSchema = (head: string[]) => {
-  return head.reduce((acc, cur, i) => Object.assign(acc, {
-    [cur || 'Column ' + String(i + 1)]: {
-      title: cur || 'Column ' + String(i + 1),
-      type: 'string',
-      props: {},
-    },
-  }), {});
-};
+// あとで消す
+// const getDisplayHeaderNamesSchema = (head: string[]) => {
+//   return head.reduce((acc, cur, i) => Object.assign(acc, {
+//     [cur || 'Column ' + String(i + 1)]: {
+//       title: cur || 'Column ' + String(i + 1),
+//       type: 'string',
+//       props: {},
+//     },
+//   }), {});
+// };
 
 export const propPanel: PropPanel<TableSchema> = {
   schema: ({ activeSchema, options, i18n }) => {
@@ -68,21 +69,22 @@ export const propPanel: PropPanel<TableSchema> = {
         span: 24,
         properties: getColumnStylesPropPanelSchema({ head, i18n }),
       },
-      customStyles: {
-        title: 'customStyle',
-        type: 'object',
-        widget: 'Card',
-        span: 24,
-        properties: {
-          displayHeaderNames: {
-            type: 'object',
-            widget: 'lineTitle',
-            title: 'display header name',
-            column: 3,
-            properties: getDisplayHeaderNamesSchema(head),
-          },
-        },
-      },
+      // あとで消す
+      // customStyles: {
+      //   title: 'customStyle',
+      //   type: 'object',
+      //   widget: 'Card',
+      //   span: 24,
+      //   properties: {
+      //     displayHeaderNames: {
+      //       type: 'object',
+      //       widget: 'lineTitle',
+      //       title: 'display header name',
+      //       column: 3,
+      //       properties: getDisplayHeaderNamesSchema(head),
+      //     },
+      //   },
+      // },
     };
   },
   defaultSchema: {
@@ -113,8 +115,9 @@ export const propPanel: PropPanel<TableSchema> = {
       alternateBackgroundColor: '#f5f5f5',
     }),
     columnStyles: {},
-    customStyles: {
-      displayHeaderNames: {}
-    },
+    // あとで消す
+    // customStyles: {
+    //   displayHeaderNames: {}
+    // },
   },
 };
