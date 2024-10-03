@@ -7,7 +7,6 @@ import line from './shapes/line.js';
 import table from './tables/index.js';
 import customizeTable from './customizeTables/index.js';
 import { rectangle, ellipse } from './shapes/rectAndEllipse.js';
-import { convertForPdfLayoutProps, rotatePoint } from './utils.js';
 
 const builtInPlugins = { Text: text };
 

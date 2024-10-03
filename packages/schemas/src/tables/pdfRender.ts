@@ -114,7 +114,6 @@ export const pdfRender = async (arg: PDFRenderProps<TableSchema>) => {
     typeof value !== 'string' ? JSON.stringify(value || '[]') : value,
     schema.__bodyRange
   );
-
   const table = await createSingleTable(body, arg);
   await drawTable(arg, table);
 };

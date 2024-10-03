@@ -1,4 +1,4 @@
-import { PropPanel, PropPanelWidgetProps } from '@pdfme/common';
+import type { PropPanel } from '@pdfme/common';
 import type { TableSchema } from './types';
 import { getFallbackFontName, DEFAULT_FONT_NAME } from '@pdfme/common';
 import {
@@ -69,7 +69,6 @@ export const propPanel: PropPanel<TableSchema> = {
     content: JSON.stringify([
       ['Alice', 'New York', 'Alice is a freelance web designer and developer'],
       ['Bob', 'Paris', 'Bob is a freelance illustrator and graphic designer'],
-      ['Carry', 'Paris', 'Bob is a freelance illustrator and graphic designer'],
     ]),
     showHead: true,
     head: ['Name', 'City', 'Description'],
