@@ -1,6 +1,6 @@
 import { PDFRenderProps } from "@pdfme/common";
-import { CustomizeTableSchema } from "./types";
-import { pdfRender as parentPdfRender } from "../tables/pdfRender";
+import { CustomizeTableSchema } from "./types.js";
+import { pdfRender as parentPdfRender } from "../tables/pdfRender.js";
 
 export const pdfRender = async (arg: PDFRenderProps<CustomizeTableSchema>) => {
   const {schema, ...rest} = arg;
@@ -13,8 +13,6 @@ export const pdfRender = async (arg: PDFRenderProps<CustomizeTableSchema>) => {
       schema.head[key] = schema.headStyles.displayHeaderNames[head];
     }
   }
-
-  console.dir(schema,{depth: null});
 
   const renderArgs = {schema, ...rest};
 

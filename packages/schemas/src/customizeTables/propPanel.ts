@@ -1,17 +1,18 @@
-import { propPanel as parentPropPanel } from "../tables/propPanel";
+import { propPanel as parentPropPanel } from "../tables/propPanel.js";
 import { PropPanel, PropPanelWidgetProps } from '@pdfme/common';
-import { CustomizeTableSchema } from './types';
+import { CustomizeTableSchema } from './types.js';
+import tableSchema from '../tables/index.js';
 
 
 export const propPanel: PropPanel<CustomizeTableSchema>  = {
-  schema: (propPanelProps: Omit<PropPanelWidgetProps, 'rootElement'>) => {
-    if (typeof parentPropPanel.schema !== 'function') {
-      throw Error('Oops, is customizeTable schema no longer a function?');
-    }
+  schema: ({ activeSchema, options, i18n }) => {
+    const propPanelProps = {activeSchema, options, i18n};
+    // @ts-ignore
     const parentSchema = parentPropPanel.schema(propPanelProps);
     const parentHeadStyles = parentSchema.headStyles;
     const headProperties = parentSchema.headStyles.properties;
-
+    // @ts-ignore
+    const head = activeSchema.head;
     return {
       ...parentSchema,
       headStyles: {
@@ -26,7 +27,7 @@ export const propPanel: PropPanel<CustomizeTableSchema>  = {
             type: 'object',
             widget: 'lineTitle',
             column: 3,
-            properties: getDisplayHeaderNamesSchema(propPanelProps.activeSchema.head),
+            properties: getDisplayHeaderNamesSchema(head),
           },
         }
       },
@@ -34,7 +35,9 @@ export const propPanel: PropPanel<CustomizeTableSchema>  = {
   },
   // custmizeTableの初期表示
   defaultSchema: {
-    ...parentPropPanel.defaultSchema,
+    ...tableSchema.propPanel.defaultSchema,
+    // CustomizeTableSchema extends TableSchema extends Schema
+    // @ts-ignore
     type: 'customizeTable',
     content: JSON.stringify([
       ['Apple', '1', '100'],
@@ -43,7 +46,7 @@ export const propPanel: PropPanel<CustomizeTableSchema>  = {
     ]),
     head: ['Name', 'Quantity', 'Price'],
     headStyles: {
-      ...parentPropPanel.defaultSchema.headStyles,
+      ...tableSchema.propPanel.defaultSchema.headStyles,
       displayHeaderNames: {
         'Name': '商品名',
         'Quantity': '数量',

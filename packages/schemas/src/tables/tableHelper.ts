@@ -44,10 +44,6 @@ interface UserOptions {
   columnStyles?: {
     [key: string]: Partial<Styles>;
   };
-  // あとで消す
-  // customStyles?: {
-  //   [key: string]: string;
-  // };
 }
 
 function parseSection(
@@ -202,8 +198,6 @@ function getTableOptions(schema: TableSchema, body: string[][]): UserOptions {
     alternateRowStyles: { backgroundColor: schema.bodyStyles.alternateBackgroundColor },
     columnStyles,
     margin: { top: 0, right: 0, left: schema.position.x, bottom: 0 },
-    // あとで消す
-    // customStyles: schema.customStyles.displayHeaderNames,
   };
 }
 
@@ -214,8 +208,6 @@ function parseStyles(cInput: UserOptions) {
     bodyStyles: {},
     alternateRowStyles: {},
     columnStyles: {},
-    // あとで消す
-    // customStyles: {},
   };
   for (const prop of Object.keys(styleOptions) as StyleProp[]) {
     if (prop === 'columnStyles') {

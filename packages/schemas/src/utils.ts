@@ -2,6 +2,7 @@ import type * as CSS from 'csstype';
 import { cmyk, degrees, degreesToRadians, rgb } from '@pdfme/pdf-lib';
 import { Schema, mm2pt, Mode, isHexValid, ColorType } from '@pdfme/common';
 import { getDynamicHeightsForTable as _getDynamicHeightsForTable } from './tables/dynamicTemplate.js';
+import { getDynamicHeightsForCustomizeTable as _getDynamicHeightsForCustomizeTable } from './customizeTables/dynamicTemplate.js';
 
 export const convertForPdfLayoutProps = ({
   schema,
@@ -62,6 +63,7 @@ export const rotatePoint = (
 };
 
 export const getDynamicHeightsForTable = _getDynamicHeightsForTable;
+export const getDynamicHeightsForCustomizeTable = _getDynamicHeightsForCustomizeTable;
 
 // ----------------------------------------
 

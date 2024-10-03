@@ -133,7 +133,7 @@ export const getPlugins = () => {
     UPCA: barcodes.upca,
     UPCE: barcodes.upce,
     GS1DataMatrix: barcodes.gs1datamatrix,
-    CustomTable: customizeTable,
+    CustomizeTable: customizeTable,
   };
 };
 
@@ -466,10 +466,6 @@ const getInvoiceTemplate = (): Template => ({
         columnStyles: {
           alignment: { '0': 'left', '3': 'right' },
         },
-        // あとで消す
-        // customStyles: {
-        //   displayHeaderNames: {},
-        // },
       },
       subtotalLabel: {
         type: 'text',
