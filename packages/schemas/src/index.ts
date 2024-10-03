@@ -8,9 +8,6 @@ import table from './tables/index.js';
 import customizeTable from './customizeTables/index.js';
 import { rectangle, ellipse } from './shapes/rectAndEllipse.js';
 import { convertForPdfLayoutProps, rotatePoint } from './utils.js';
-import customizeTable from './customizeTables/index.js';
-
-const tableBeta = table;
 
 const builtInPlugins = { Text: text };
 
@@ -25,8 +22,6 @@ export {
   customizeTable,
   barcodes,
   line,
-  tableBeta,
-  customizeTable,
   rectangle,
   ellipse,
 };
