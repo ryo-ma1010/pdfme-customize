@@ -5,6 +5,7 @@ import svg from './graphics/svg.js';
 import barcodes from './barcodes/index.js';
 import line from './shapes/line.js';
 import table from './tables/index.js';
+import customizeTable from './customizeTables/index.js';
 import { rectangle, ellipse } from './shapes/rectAndEllipse.js';
 
 const builtInPlugins = { Text: text };
@@ -17,6 +18,7 @@ export {
   image,
   svg,
   table,
+  customizeTable,
   barcodes,
   line,
   rectangle,

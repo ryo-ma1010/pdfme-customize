@@ -18,6 +18,7 @@ import {
   table,
   rectangle,
   ellipse,
+  customizeTable,
 } from '@pdfme/schemas';
 import plugins from './plugins';
 
@@ -132,6 +133,7 @@ export const getPlugins = () => {
     UPCA: barcodes.upca,
     UPCE: barcodes.upce,
     GS1DataMatrix: barcodes.gs1datamatrix,
+    CustomizeTable: customizeTable,
   };
 };
 
